@@ -7,9 +7,11 @@
     --grisClaro: #DFE9F3;
 }
 
+/* Globales */
 html {
     font-size: 62.5%; /* 1rem = 10px */
     box-sizing: border-box; /* Hack para el box model */
+    scroll-snap-type: y mandatory; /* Hace que el scroll se quede en ciertas paginas de la página */
 }
 
 *, *::before, *::after {
@@ -166,12 +168,23 @@ h1, h2, h3 {
     align-items: flex-end;
 }
 
+.servicios,
+.navegacion-principal,
+.contacto,
+footer {
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+}
+
 /* Servicios */
 @media (min-width: 768px) {
     .servicios {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr; /* Tres columnas de igual tamaño */
         column-gap: 1rem;
+    }
+    .servicios h2 {
+        grid-column: 1 / 4; /* Abarca desde la columna 1 hasta la 4 (todas las columnas) */
     }
 }
 
